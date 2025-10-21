@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Numeric, Enum  # (Enum se usar status Enum)
 from sqlalchemy.orm import relationship
-from db.base import Base
+from app.db.base import Base
 
 
 # classe que representa a tabela users no banco de dados
