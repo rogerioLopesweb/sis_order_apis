@@ -13,12 +13,14 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from app.db.session import engine
 from app.db.base import Base
-from app.routers.auth_routes import router as auth_router
-from app.routers.order_routes import router as order_router
+
+# Inicializa o FastAPI
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
-  
-# inclui as rotas na aplicação
+# inclui as rotas na aplicação (import routers after app to avoid circular imports)
+from app.routers.auth_routes import router as auth_router
+from app.routers.order_routes import router as order_router
+
 app.include_router(auth_router)
 app.include_router(order_router)

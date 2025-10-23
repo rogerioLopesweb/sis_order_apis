@@ -31,10 +31,10 @@ engine = create_engine(
     future=True,
 )
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False, future=True)
-
+# Dependência para obter sessão do banco de dados
 def get_db():
-    db = SessionLocal()
     try:
+        db = SessionLocal() 
         yield db
     finally:
         db.close()

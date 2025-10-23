@@ -16,6 +16,7 @@ class User(Base):
     
     # Construtor da classe
     def __init__(self, name: str, email: str, password: str, active: bool = True, admin: bool = False):
+        
         self.name = name
         self.email = email
         self.password = password
